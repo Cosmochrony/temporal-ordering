@@ -21,7 +21,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
 \begin{document}
   \maketitle
 
-% ------------------------------------------------------------------
+
   \begin{abstract}
     We identify a monotone proxy for temporal ordering within the
     Cosmochrony spectral admissibility programme.
@@ -41,97 +41,100 @@ Numerical Evidence from the Spectral Admissibility Cascade}
     saturation at the pair level.
   \end{abstract}
 
-% ------------------------------------------------------------------
+  \paragraph{Keywords.}
+    Cosmochrony; non-injective projection; projective temporal ordering; spectral admissibility; cumulative projected
+    capacity; one-way activation; Weil representation; Heisenberg group; Gram--Schmidt dynamics; emergent time
+
+    \clearpage
   \section{Introduction}
 
-    The status of time in fundamental physics remains unsettled.
-    In classical mechanics, time appears as an external parameter; in
-    general relativity, it is incorporated into spacetime geometry; in
-    quantum theory, it remains an external evolution parameter with no
-    operator counterpart.
-    Despite their empirical success, these frameworks do not provide a
-    unified account of the origin of temporal ordering.
+  The status of time in fundamental physics remains unsettled.
+  In classical mechanics, time appears as an external parameter; in
+  general relativity, it is incorporated into spacetime geometry; in
+  quantum theory, it remains an external evolution parameter with no
+  operator counterpart.
+  Despite their empirical success, these frameworks do not provide a
+  unified account of the origin of temporal ordering.
 
-    In thermodynamic approaches, the arrow of time is associated with
-    entropy increase.
-    However, such accounts presuppose probabilistic structure and
-    coarse-graining, and do not explain why a preferred ordering exists at
-    the level of fundamental description.
-    More recent approaches attempt to derive time from correlations,
-    quantum entanglement, or relational observables, but typically retain
-    an underlying notion of evolution or state update.
+  In thermodynamic approaches, the arrow of time is associated with
+  entropy increase.
+  However, such accounts presuppose probabilistic structure and
+  coarse-graining, and do not explain why a preferred ordering exists at
+  the level of fundamental description.
+  More recent approaches attempt to derive time from correlations,
+  quantum entanglement, or relational observables, but typically retain
+  an underlying notion of evolution or state update.
 
-    The Cosmochrony framework adopts a different starting point~\cite{Beau2026a}.
-    The relational substrate~$\chi$ is static, and no fundamental time
-    parameter is assumed.
-    Observable dynamics arises instead from an iterated reprojection
-    sequence
-    \begin{equation}
-      \label{eq:reprojection}
-      U_{t+1} = \Pi \circ \sigma(U_t),
-    \end{equation}
-    where $\Pi$ is a fixed non-injective projection and
-    $\sigma(U_t) \in \Pi^{-1}(U_t)$ selects an admissible configuration
-    within the fibre compatible with the current effective state.
-    In this setting, the notion of time cannot be identified with an
-    evolution of~$\chi$, but must emerge from the structure of admissible
-    projections itself.
+  The Cosmochrony framework adopts a different starting point~\cite{Beau2026a}.
+  The relational substrate~$\chi$ is static, and no fundamental time
+  parameter is assumed.
+  Observable dynamics arises instead from an iterated reprojection
+  sequence
+  \begin{equation}
+    \label{eq:reprojection}
+    U_{t+1} = \Pi \circ \sigma(U_t),
+  \end{equation}
+  where $\Pi$ is a fixed non-injective projection and
+  $\sigma(U_t) \in \Pi^{-1}(U_t)$ selects an admissible configuration
+  within the fibre compatible with the current effective state.
+  In this setting, the notion of time cannot be identified with an
+  evolution of~$\chi$, but must emerge from the structure of admissible
+  projections itself.
 
-    This raises a precise question: does there exist a scalar observable,
-    defined intrinsically along the admissibility cascade, that induces a
-    consistent temporal ordering without introducing additional structure?
+  This raises a precise question: does there exist a scalar observable,
+  defined intrinsically along the admissibility cascade, that induces a
+  consistent temporal ordering without introducing additional structure?
 
-    The spectral admissibility programme provides a natural testing ground
-    for this question.
-    For each prime~$q$ and each conjugate pair $(c, q{-}c)$, the pipeline
-    produces a sequence of observables $\sigma_{\mathrm{pair}}(n)$ indexed
-    by BFS depth~$n$, interpreted as residual projective
-    capacity~\cite{Beau2026a29}.
-    While $\sigma_{\mathrm{pair}}(n)$ is not suitable as a temporal
-    parameter due to its decreasing behaviour, its complement
-    \begin{equation}
-      \label{eq:I_intro}
-      I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)
-    \end{equation}
-    measures the cumulative projected capacity, i.e.\ the amount of
-    spectral structure stably realised up to depth~$n$.
+  The spectral admissibility programme provides a natural testing ground
+  for this question.
+  For each prime~$q$ and each conjugate pair $(c, q{-}c)$, the pipeline
+  produces a sequence of observables $\sigma_{\mathrm{pair}}(n)$ indexed
+  by BFS depth~$n$, interpreted as residual projective
+  capacity~\cite{Beau2026a29}.
+  While $\sigma_{\mathrm{pair}}(n)$ is not suitable as a temporal
+  parameter due to its decreasing behaviour, its complement
+  \begin{equation}
+    \label{eq:I_intro}
+    I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)
+  \end{equation}
+  measures the cumulative projected capacity, i.e.\ the amount of
+  spectral structure stably realised up to depth~$n$.
 
-    The central result of this work is that $I(n)$ is strictly
-    non-decreasing along all tested admissible trajectories, across all
-    conjugate pairs and all primes $q \in \{29, 61, 101, 151\}$.
-    This monotonicity is not imposed but observed numerically at each step
-    of the cascade, with no physically meaningful regression.
+  The central result of this work is that $I(n)$ is strictly
+  non-decreasing along all tested admissible trajectories, across all
+  conjugate pairs and all primes $q \in \{29, 61, 101, 151\}$.
+  This monotonicity is not imposed but observed numerically at each step
+  of the cascade, with no physically meaningful regression.
 
-    We interpret this property as defining a \emph{projective temporal
+  We interpret this property as defining a \emph{projective temporal
   ordering}: time is not a parameter of the substrate, but a monotone
-    ordering induced by the accumulation of admissible spectral structure
-    under a non-injective projection.
-    This ordering is compatible with the stability of observable rank
-    established in O24~\cite{Beau2026a28} and introduces no additional
-    dynamical degrees of freedom.
+  ordering induced by the accumulation of admissible spectral structure
+  under a non-injective projection.
+  This ordering is compatible with the stability of observable rank
+  established in O24~\cite{Beau2026a28} and introduces no additional
+  dynamical degrees of freedom.
 
-    This perspective suggests that temporal ordering may arise as a
-    structural consequence of non-injectivity, rather than as a fundamental
-    ingredient of the theory.
-    The cumulative observable $I(n)$ provides a concrete and computable
-    realisation of this idea within the spectral admissibility cascade.
+  This perspective suggests that temporal ordering may arise as a
+  structural consequence of non-injectivity, rather than as a fundamental
+  ingredient of the theory.
+  The cumulative observable $I(n)$ provides a concrete and computable
+  realisation of this idea within the spectral admissibility cascade.
 
-% ------------------------------------------------------------------
   \section{The Two Variables and Why $\sigma_{\mathrm{pair}}$ Is Not the
   Right One}
 
-    The observable $\sigma_{\mathrm{pair}}(n) = \sigma_c(n)\,\sigma_{q-c}(n)$
-    measures the residual projective capacity of the conjugate pair at
-    depth~$n$: it counts, normalised by~$q$, the fraction of Weil
-    fingerprint vectors that remain linearly independent of the
-    Gram--Schmidt span built over the preceding shells.
-    By construction, $\sigma_{\mathrm{pair}}(n)$ decays as~$n$ grows and
-    cannot serve as a temporal proxy, since a decreasing quantity does not
-    define an ordering compatible with the accumulation of structure.
-    The correct variable is its complement~\eqref{eq:I_intro}, which we
-    now define formally.
+  The observable $\sigma_{\mathrm{pair}}(n) = \sigma_c(n)\,\sigma_{q-c}(n)$
+  measures the residual projective capacity of the conjugate pair at
+  depth~$n$: it counts, normalised by~$q$, the fraction of Weil
+  fingerprint vectors that remain linearly independent of the
+  Gram--Schmidt span built over the preceding shells.
+  By construction, $\sigma_{\mathrm{pair}}(n)$ decays as~$n$ grows and
+  cannot serve as a temporal proxy, since a decreasing quantity does not
+  define an ordering compatible with the accumulation of structure.
+  The correct variable is its complement~\eqref{eq:I_intro}, which we
+  now define formally.
 
-    \begin{definition}[Cumulative projected capacity]
+  \begin{definition}[Cumulative projected capacity]
 Let $\sigma_{\mathrm{pair}}(n)$ denote the canonical pair
 observable~\cite{Beau2026a29} at BFS depth~$n$.
 The \emph{cumulative projected capacity} at depth~$n$ is
@@ -139,33 +142,32 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   \label{eq:I}
   I(n) \;:=\; \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n).
 \end{equation}
-    \end{definition}
+  \end{definition}
 
-    $I(n)$ measures the spectral structure stably projected up to depth~$n$:
-    it starts at zero and accumulates as the cascade progresses, with
-    $I(0) = 0$ and $I(n) \to \sigma_{\mathrm{pair}}(0)$ as
-    $n \to n_{\mathrm{sat}}$, where $n_{\mathrm{sat}}$ denotes the
-    saturation depth at which $\sigma_{\mathrm{pair}}(n) \approx 0$.
+  $I(n)$ measures the spectral structure stably projected up to depth~$n$:
+  it starts at zero and accumulates as the cascade progresses, with
+  $I(0) = 0$ and $I(n) \to \sigma_{\mathrm{pair}}(0)$ as
+  $n \to n_{\mathrm{sat}}$, where $n_{\mathrm{sat}}$ denotes the
+  saturation depth at which $\sigma_{\mathrm{pair}}(n) \approx 0$.
 
-    \begin{remark}
-      $I(n)$ is non-decreasing if and only if $\sigma_{\mathrm{pair}}(n)$ is
-      non-increasing.
-      While this is expected under a dissipative interpretation of the BFS
-      cascade, the present work establishes it empirically without relying on
-      a formal dissipation theorem: the monotonicity of $I(n)$ is observed
-      directly, step by step and pair by pair, across all tested primes.
-    \end{remark}
+  \begin{remark}
+    $I(n)$ is non-decreasing if and only if $\sigma_{\mathrm{pair}}(n)$ is
+    non-increasing.
+    While this is expected under a dissipative interpretation of the BFS
+    cascade, the present work establishes it empirically without relying on
+    a formal dissipation theorem: the monotonicity of $I(n)$ is observed
+    directly, step by step and pair by pair, across all tested primes.
+  \end{remark}
 
-    \paragraph{Independence from the BFS parametrisation.}
-      Although $I(n)$ is indexed by BFS depth, its definition does not depend
-      on the combinatorial parametrisation of the cascade but on the
-      cumulative spectral projection.
-      The monotonicity observed here is therefore not an artefact of BFS
-      ordering, but reflects an intrinsic property of admissible projection:
-      the Gram--Schmidt span can only grow within the canonical
-      Gram--Schmidt construction used in the admissibility pipeline.
+  \paragraph{Independence from the BFS parametrisation.}
+    Although $I(n)$ is indexed by BFS depth, its definition does not depend
+    on the combinatorial parametrisation of the cascade but on the
+    cumulative spectral projection.
+    The monotonicity observed here is therefore not an artefact of BFS
+    ordering, but reflects an intrinsic property of admissible projection:
+    the Gram--Schmidt span can only grow within the canonical
+    Gram--Schmidt construction used in the admissibility pipeline.
 
-% ------------------------------------------------------------------
   \section{Temporal Ordering as a Projective Relation}
 
   \paragraph{Order versus dynamics.}
@@ -237,7 +239,6 @@ do not deactivate---remains to be established analytically.
     The ordering is therefore compatible with the vertical non-injectivity
     theorem and introduces no hidden dynamics.
 
-% ------------------------------------------------------------------
   \section{Protocol and Data}
 
   Computations use the \texttt{o25\_paired\_pipeline.py} pipeline with
@@ -260,12 +261,12 @@ do not deactivate---remains to be established analytically.
     \label{tab:stability}
     \begin{tabular}{rrrrrr}
       \toprule
-      $q$ & pairs & steps & mean mono & regressions & mono frac \\
+      $q$ & pairs & steps & mean mono & regressions & mono frac  \\
       \midrule
-      29 &  14 &  25 & YES & 0 & 1.0000 \\
-      61 &  30 &  55 & YES & 0 & 1.0000 \\
-      101 &  50 &  92 & YES & 0 & 1.0000 \\
-      151 &  75 & 138 & YES & $0^*$ & $1.0000^*$ \\
+      29  & 14    & 25    & YES       & 0           & 1.0000     \\
+      61  & 30    & 55    & YES       & 0           & 1.0000     \\
+      101 & 50    & 92    & YES       & 0           & 1.0000     \\
+      151 & 75    & 138   & YES       & $0^*$       & $1.0000^*$ \\
       \bottomrule
     \end{tabular}
     \smallskip
@@ -293,7 +294,6 @@ do not deactivate---remains to be established analytically.
     \label{fig:traces}
   \end{figure}
 
-% ------------------------------------------------------------------
   \section{Interpretation}
 
   \paragraph{One-way activation.}
@@ -352,7 +352,6 @@ do not deactivate---remains to be established analytically.
     result establishes only its monotone and stable character along the
     tested BFS trajectories for $q \in \{29, 61, 101, 151\}$.
 
-% ------------------------------------------------------------------
   \subsection*{Formal statement and what remains to be proved}
 
   The numerical results above support the following conjecture.
@@ -377,8 +376,12 @@ do not deactivate---remains to be established analytically.
     \item $\delta r_n = \dim V_n - \dim V_{n-1} \geq 0$ (the rank gain is
     non-negative).
   \end{itemize}
-  These facts imply that $I(n)$ is non-decreasing and that
-  $\sigma_{\mathrm{pair}}(n) \to 0$ asymptotically.
+  These facts imply that the cumulative rank $\dim V_n$ is
+  non-decreasing and that $\sigma_{\mathrm{pair}}(n) \to 0$
+  asymptotically as $\dim V_n \to q$.
+  They do not, however, imply the stepwise monotonicity of
+  $\sigma_{\mathrm{pair}}(n)$, which is the content of
+  Conjecture~\ref{conj:owa}.
   However, they do not imply Conjecture~\ref{conj:owa}: cumulative rank
   monotonicity alone does not control the shellwise ratio
   \begin{equation}
@@ -396,7 +399,7 @@ do not deactivate---remains to be established analytically.
   saturation in the Weil sector of $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$,
   which we leave as an open problem (Question~2 in Section~\ref{sec:open}).
 
-% ------------------------------------------------------------------
+  \clearpage
   \section{Open Questions}
   \label{sec:open}
 
@@ -435,7 +438,6 @@ do not deactivate---remains to be established analytically.
 
   \end{enumerate}
 
-% ------------------------------------------------------------------
   \section{Conclusion}
 
   The observable $\sigma_{\mathrm{pair}}(n)$ measures residual projective
@@ -460,7 +462,7 @@ do not deactivate---remains to be established analytically.
   property of admissible projection structure, rather than a primitive
   ingredient of physical theory.
 
-% ------------------------------------------------------------------
+
   \bibliographystyle{plain}
   \bibliography{cosmochrony-bibliography}
 

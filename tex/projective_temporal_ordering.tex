@@ -73,10 +73,10 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   sequence
   \begin{equation}
     \label{eq:reprojection}
-    U_{t+1} = \Pi \circ \sigma(U_t),
+    U_{n+1} = \Pi \circ \sigma(U_n),
   \end{equation}
   where $\Pi$ is a fixed non-injective projection and
-  $\sigma(U_t) \in \Pi^{-1}(U_t)$ selects an admissible configuration
+  $\sigma(U_n) \in \Pi^{-1}(U_n)$ selects an admissible configuration
   within the fibre compatible with the current effective state.
   In this setting, the notion of time cannot be identified with an
   evolution of~$\chi$, but must emerge from the structure of admissible
@@ -189,8 +189,8 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     containing multiple underlying configurations.
     Temporal ordering does not correspond to motion within~$\Omega$, but to
     a change in the admissible selection
-    $\sigma(U_t) \in \Pi^{-1}(U_t)$ that defines the next effective state
-    $U_{t+1} = \Pi \circ \sigma(U_t)$.
+    $\sigma(U_n) \in \Pi^{-1}(U_n)$ that defines the next effective state
+    $U_{n+1} = \Pi \circ \sigma(U_n)$.
     Successive steps correspond to distinct admissible realisations drawn
     from different regions of the fibres.
     Time is therefore an ordering of admissible selections within a
@@ -209,10 +209,13 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       Define an ordering on effective states along the BFS cascade by
       \begin{equation}
         \label{eq:order}
-        U_t \prec U_{t+1}
+        U_n \prec U_{n+1}
         \quad \Longleftrightarrow \quad
-        I(U_t) \leq I(U_{t+1}).
+        I(U_n) \leq I(U_{n+1}),
       \end{equation}
+      where $n$ is the BFS shell depth, an ordering parameter on projected
+      configurations that does not represent a physical time variable at the
+      substrate level.
       For $q \in \{29, 61, 101, 151\}$, this ordering is strictly observed
       numerically along the tested BFS trajectories: $I(n)$ is strictly
       non-decreasing at every step, for every conjugate pair $(c, q{-}c)$,
@@ -291,7 +294,9 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       strictly non-decreasing.
       Both panels show all 50 conjugate pairs at $q = 101$.
       The two observables are exact complements, illustrating the one-way
-      activation property: spectral structure, once projected, is never lost.}
+      activation property: spectral modes, once projected, are never lost
+      from the Gram--Schmidt span (coherent configurations may nonetheless
+      reorganize).}
     \label{fig:traces}
   \end{figure}
 
@@ -303,13 +308,18 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     Once a mode contributes stably to the Gram--Schmidt span, it does not
     leave: the spectral structure accumulated at depth~$n$ is preserved at
     all subsequent depths.
+    One-way activation is a property of \emph{spectral modes}, not of the
+    coherence of projected configurations: a coherent combination of modes
+    --- corresponding to an unstable particle --- can lose its admissible
+    coherence and reorganize into simpler configurations without any mode
+    leaving~$V_n$.
     This one-way activation mechanism provides a structural form of
     irreversibility that does not rely on probabilistic or thermodynamic
     arguments, but follows from the admissible accumulation of projected
     spectral structure.
-    This is the empirical content of the stability condition required for
-    the identification of $I(n)$ as a temporal proxy: an ordering defined
-    by $I$ is well-posed only if $I$ never reverses.
+    It is the condition of possibility for the identification of $I(n)$ as
+    a temporal proxy: an ordering defined by~$I$ is well-posed only if $I$
+    never reverses.
 
   \paragraph{Non-arbitrariness of $I(n)$.}
     The choice of $I(n)$ as a temporal proxy is not arbitrary among monotone

@@ -1,6 +1,5 @@
-This repository contains the source of the  
-[paper on projective temporal ordering and cumulative projected capacity](out/projective_temporal_ordering.pdf)  
-(paper OXX de Cosmochrony / spectral admissibility programme).
+This repository contains the source of the [paper on projective temporal ordering and cumulative projected capacity](out/projective_temporal_ordering.pdf)  
+(paper of the Cosmochrony / spectral admissibility programme).
 
 This work introduces a **structural notion of temporal ordering**
 based on the cumulative projected capacity observable

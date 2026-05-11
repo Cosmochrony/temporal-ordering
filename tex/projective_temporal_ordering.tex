@@ -30,10 +30,10 @@ Numerical Evidence from the Spectral Admissibility Cascade}
     but the cumulative projected capacity
     $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
     which measures the spectral structure already projected at depth~$n$.
-    For $q \in \{29, 61, 101, 151\}$, $I(n)$ is found to be strictly
+    For $q \in \{29, 61, 101, 151, 211\}$, $I(n)$ is found to be strictly
     non-decreasing at every BFS step, for every conjugate pair
     $(c, q{-}c)$, with zero physically meaningful regressions observed
-    across 169~pairs and 310~steps after burn-in.
+    across 274~pairs and 360~steps after burn-in.
     The temporal ordering is not a dynamics on the substrate~$\chi$, but
     an induced ordering relation on admissible projections, compatible
     with the observable rank stability established in O24~\cite{Beau2026a28}.
@@ -103,7 +103,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
 
   The central result of this work is that $I(n)$ is strictly
   non-decreasing along all tested admissible trajectories, across all
-  conjugate pairs and all primes $q \in \{29, 61, 101, 151\}$.
+  conjugate pairs and all primes $q \in \{29, 61, 101, 151, 211\}$.
   This monotonicity is not imposed but observed numerically at each step
   of the cascade, with no physically meaningful regression.
 
@@ -145,12 +145,12 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   $|\Psi\rangle$ on a composite Hilbert space $\mathcal{H}_C \otimes \mathcal{H}_S$
   induces an apparent evolution via conditional states
   \[
-  |\psi(t)\rangle := \langle t | \Psi \rangle.
+    |\psi(t)\rangle := \langle t | \Psi \rangle.
   \]
 
   This construction can be interpreted as a family of conditional projections
   \[
-  \Pi_t(\Psi) := \langle t | \Psi \rangle,
+    \Pi_t(\Psi) := \langle t | \Psi \rangle,
   \]
   which generate an ordering parameter $t$ without introducing an external time.
 
@@ -168,7 +168,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   each step.
   The cumulative projected capacity
   \[
-  I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)
+    I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)
   \]
   quantifies this loss as a monotone accumulation of realised structure.
 
@@ -286,7 +286,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       where $n$ is the BFS shell depth, an ordering parameter on projected
       configurations that does not represent a physical time variable at the
       substrate level.
-      For $q \in \{29, 61, 101, 151\}$, this ordering is strictly observed
+      For $q \in \{29, 61, 101, 151, 211\}$, this ordering is strictly observed
       numerically along the tested BFS trajectories: $I(n)$ is strictly
       non-decreasing at every step, for every conjugate pair $(c, q{-}c)$,
       with no physically meaningful exception.
@@ -341,6 +341,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       61  & 30    & 55    & YES       & 0           & 1.0000     \\
       101 & 50    & 92    & YES       & 0           & 1.0000     \\
       151 & 75    & 138   & YES       & $0^*$       & $1.0000^*$ \\
+      211 & 105   & 50    & YES       & 0           & 1.0000     \\
       \bottomrule
     \end{tabular}
     \smallskip
@@ -445,7 +446,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     Whether this identification holds within the full
     framework~\cite{Beau2026a} is left as an open question; the present
     result establishes only its monotone and stable character along the
-    tested BFS trajectories for $q \in \{29, 61, 101, 151\}$.
+    tested BFS trajectories for $q \in \{29, 61, 101, 151, 211\}$.
 
   \paragraph{Relation to standard time-dependent evolution.}
     The present construction does not assume a fundamental time parameter.
@@ -564,8 +565,8 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   capacity and decays along the BFS cascade; its complement
   $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$
   measures cumulative projected capacity and grows.
-  Across $q \in \{29, 61, 101, 151\}$, covering 169~pairs and
-  310~post-burn-in steps, $I(n)$ is strictly non-decreasing at every BFS
+  Across $q \in \{29, 61, 101, 151, 211\}$, covering 274~pairs and
+  360~post-burn-in steps, $I(n)$ is strictly non-decreasing at every BFS
   step and for every conjugate pair, with no physically meaningful
   regression.
   This establishes $I(n)$ as a robust monotone proxy for temporal ordering

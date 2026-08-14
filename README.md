@@ -67,7 +67,8 @@ The paper establishes the following statements:
 
 5. **Observable rank remains invariant**  
    Temporal progression reorders admissible configurations but does not
-   increase the observable rank, in agreement with O23–O24.
+   increase the observable rank, in agreement with the supplied selection rule of O23
+   (conditional on its supplied spinor carrier) and its stabilisation in O24.
 
 ## What This Paper Does Not Assume
 

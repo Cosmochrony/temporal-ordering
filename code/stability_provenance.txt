@@ -1,0 +1,20 @@
+Provenance of Table 1 (tab:stability), PTO version 1.5
+=====================================================
+
+Script : o_stability_diagnostic.py
+         https://github.com/Cosmochrony/spectral-o25 (code/), commit 3a9a4f10b0675528915533fe2e36b164a191b01f
+Inputs : o25 paired-pipeline outputs (sigma_pair traces, M = 50 block samples per pair, bfs_frac = 0.99)
+         https://github.com/Cosmochrony/simulation (spectral/o25/o25_outputs/), commit c383f428caf57ed05245b2872c3feec101424009
+           q29_o25.npz   sha256 cd0fde6d50b24993d3e48d4e20b91ac64967d44ea895dc6f6c0f0fe4a3fb960f
+           q61_o25.npz   sha256 27ef74d1805e0bb44cfbf0432720144b0079b5a2541919d4ab57a6eca7f6266d
+           q101_o25.npz  sha256 5597f4a14044a41cf7875c7258779eeb57d78656e0ea5f47f9bd6b688a6a883f
+           q151_o25.npz  sha256 4cd2180d6ab2fb6e67571c615f266f7d81658b31e0be4c32a2bcccef864ee7fd
+           q211_o25.npz  sha256 63d3e08c642461573d50b0ba7fb65577686f197e415d5fcb13406741bad89279
+Command: python o_stability_diagnostic.py --npz-dir <simulation>/spectral/o25/o25_outputs \
+             --primes 29 61 101 151 211 --out-dir <out-dir>
+         (burn-in 2, relative regression tolerance 1e-6 of the plateau value; both are script defaults)
+Output : stability_diagnostic_output.txt (this directory), unedited apart from the output-directory path.
+
+Step-count convention: "steps" is the number of consecutive-depth differences I(n+1) - I(n) with n >= 2,
+per pair. The q = 211 row of version 1.4 (50 steps) has no archived source and is replaced by the archived
+run (194 steps); the total is 25 + 55 + 92 + 138 + 194 = 504.

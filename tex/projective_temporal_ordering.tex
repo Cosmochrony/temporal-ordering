@@ -36,11 +36,13 @@ Numerical Evidence from the Spectral Admissibility Cascade}
     but the cumulative projected capacity
     $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
     which measures the spectral structure already projected at depth~$n$.
-    For $q \in \{29, 61, 101, 151, 211\}$, $I(n)$ is found to be
-    non-decreasing at every BFS step after burn-in, for every conjugate pair
-    $(c, q{-}c)$, with zero regressions above a relative threshold of $10^{-6}$
-    across 274~pairs and 360~post-burn-in steps.
-    This stepwise monotonicity is conjectural: the inclusion of the cumulative spans is immediate,
+    For $q \in \{29, 61, 101, 151, 211\}$, across 274~pairs and 504~post-burn-in steps, no
+    decrease of $I(n)$ larger than $10^{-6}$ of its plateau value is found at any BFS step after
+    burn-in, for any conjugate pair $(c, q{-}c)$.
+    The traces are exactly non-decreasing for $q \leq 101$; for $q = 151$ and $211$, decreases of
+    order $10^{-10}$ occur on the saturation plateau, so the pair-averaged trace is non-decreasing
+    only within that tolerance.
+    Exact stepwise monotonicity is conjectural: the inclusion of the cumulative spans is immediate,
     but it does not control the shellwise ratio $\sigma_{\mathrm{pair}}$.
     $I(n)$ is defined along a trajectory and gives no order on states; a strict order on states
     requires the acyclicity hypothesis [H-acyc], which is not established.
@@ -115,11 +117,12 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   spectral structure stably realised up to depth~$n$.
 
   The central result of this work is that $I(n)$ is
-  non-decreasing along all tested admissible trajectories, across all
-  conjugate pairs and all primes $q \in \{29, 61, 101, 151, 211\}$.
+  non-decreasing within a relative tolerance of $10^{-6}$ along all tested admissible
+  trajectories, across all conjugate pairs and all primes $q \in \{29, 61, 101, 151, 211\}$.
   This monotonicity is not imposed but observed numerically at each step
   of the cascade after burn-in, with no regression above the threshold of
-  Table~\ref{tab:stability}.
+  Table~\ref{tab:stability}; it is exact for $q \leq 101$ and holds only within the
+  tolerance for $q = 151$ and $211$.
   It is not a consequence of the construction: the stepwise statement is
   Conjecture~\ref{conj:owa}.
 
@@ -396,41 +399,55 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   Monotonicity of $I(n)$ is tested by the
   \texttt{o\_stability\_diagnostic.py} script, which records,
   for each prime and each pair, every step with $I(n{+}1) < I(n)$
-  after the burn-in depth $n_{\mathrm{burn}} = 2$.
-  A recorded decrease is counted as a regression, and in the monotone fraction, in
-  Table~\ref{tab:stability} only if $I(n) - I(n{+}1) > 10^{-6}\, I_{\max}$,
-  where $I_{\max}$ is the plateau value of the pair; this threshold is applied
-  to the script's output and is not part of the script.
+  after the burn-in depth $n_{\mathrm{burn}} = 2$ (exact test), and separately every step
+  with $I(n) - I(n{+}1) > 10^{-6}\, I_{\max}$, where $I_{\max}$ is the plateau value of
+  the pair (tolerance test).
+  Both tests are applied to each pair and to the pair-averaged trace.
+  Table~\ref{tab:stability} reports both.
+  Each row is computed from an archived pipeline output; the input files with their
+  SHA-256 digests, the script commit, the command and the unedited script output are
+  recorded in the files \texttt{stability\_provenance.txt} and
+  \texttt{stability\_diagnostic\_output.txt} of the \texttt{code} directory of the paper
+  repository.
+  ``Steps'' counts the consecutive-depth differences $I(n{+}1) - I(n)$ with
+  $n \geq n_{\mathrm{burn}}$, per pair.
+  The $q = 211$ row of version~1.4 (50~steps) had no archived source; it is replaced by
+  the archived run (194~steps).
 
   \begin{table}[h]
     \centering
-    \caption{Monotonicity and stability of $I(n)$ per prime.
-    ``Steps'' counts BFS depths after burn-in.
-    ``Mean mono'' reports whether the pair-averaged $I(n)$ is
-    non-decreasing.
-    ``Regressions'' counts pairs with at least one physically meaningful
-    decrease in $I$ (threshold: relative decrease $> 10^{-6}$ of the
-    plateau value).}
+    \caption{Monotonicity of $I(n)$ per prime, exact and within tolerance.
+    ``Steps'': consecutive-depth differences after burn-in, per pair.
+    ``Exact dec.'': pairs with at least one exact decrease $I(n{+}1) < I(n)$.
+    ``Regr.'': pairs with a decrease larger than $10^{-6}$ of the plateau value.
+    ``Frac'': fraction of (pair, step) with no exact decrease, and with no
+    above-tolerance decrease.
+    ``Mean'': whether the pair-averaged $I(n)$ is non-decreasing exactly, and
+    within tolerance.}
     \label{tab:stability}
-    \begin{tabular}{rrrrrr}
+    {\small
+    \begin{tabular}{rrrrrrrrr}
       \toprule
-      $q$ & pairs & steps & mean mono & regressions & mono frac  \\
+      & & & \multicolumn{2}{c}{pairs with} & \multicolumn{2}{c}{frac} & \multicolumn{2}{c}{mean} \\
+      \cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+      $q$ & pairs & steps & exact dec. & regr. & exact & tol. & exact & tol. \\
       \midrule
-      29  & 14    & 25    & YES       & 0           & 1.0000     \\
-      61  & 30    & 55    & YES       & 0           & 1.0000     \\
-      101 & 50    & 92    & YES       & 0           & 1.0000     \\
-      151 & 75    & 138   & YES       & $0^*$       & $1.0000^*$ \\
-      211 & 105   & 50    & YES       & 0           & 1.0000     \\
+      29  & 14  & 25  & 0   & 0 & 1.0000 & 1.0000 & YES & YES \\
+      61  & 30  & 55  & 0   & 0 & 1.0000 & 1.0000 & YES & YES \\
+      101 & 50  & 92  & 0   & 0 & 1.0000 & 1.0000 & YES & YES \\
+      151 & 75  & 138 & 70  & 0 & 0.9838 & 1.0000 & NO  & YES \\
+      211 & 105 & 194 & 102 & 0 & 0.9871 & 1.0000 & NO  & YES \\
       \bottomrule
     \end{tabular}
+    }
     \smallskip
 
     {\footnotesize
-      $^*$At $q = 151$, 70 pairs exhibit floating-point fluctuations of
-    order $10^{-10}$--$10^{-13}$ on the saturation plateau, where
-      $I/I_{\max} = 1.000000$.
-    These are ${\sim}6$ orders of magnitude below the mean positive step
-    size of $4 \times 10^{-2}$ and are not counted as physical regressions.
+    At $q = 151$ and $211$ the exact decreases lie on the saturation plateau; the largest
+    is $3.1 \times 10^{-10}$ in absolute value and $4.8 \times 10^{-13}$ of the plateau value.
+    They are consistent with floating-point fluctuations, but the data alone do not decide
+    this; they neither confirm nor refute the exact monotonicity of
+    Conjecture~\ref{conj:owa}.
     }
   \end{table}
 
@@ -627,8 +644,9 @@ The \emph{cumulative projected capacity} at depth~$n$ is
 
     \item Does the monotonicity of $I(n)$ hold for all admissible
     primes~$q$, or are there exceptions at large~$q$?
-    The extension to $q = 211$ (105 pairs, 50 steps) shows zero regressions
-    after burn-in (Table~\ref{tab:stability}).
+    The extension to $q = 211$ (105 pairs, 194 steps) shows zero regressions
+    above the tolerance after burn-in, with exact plateau decreases of order
+    $10^{-10}$ (Table~\ref{tab:stability}).
     Extension to $q \in \{307, 401\}$ is pending.
 
     \item Can the one-way activation property---$\sigma_{\mathrm{pair}}(n)$
@@ -688,9 +706,9 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$
   measures cumulative projected capacity and grows.
   Across $q \in \{29, 61, 101, 151, 211\}$, covering 274~pairs and
-  360~post-burn-in steps, $I(n)$ is non-decreasing at every post-burn-in BFS
-  step and for every conjugate pair, with no regression above a relative
-  threshold of $10^{-6}$.
+  504~post-burn-in steps, $I(n)$ shows no decrease larger than a relative
+  tolerance of $10^{-6}$ at any post-burn-in BFS step and for any conjugate pair;
+  it is exactly non-decreasing for $q \leq 101$.
   This supports $I(n)$ as a monotone proxy for temporal ordering
   along the tested trajectories of the admissible spectral cascade.
   Mode retention ($V_n \subseteq V_{n+1}$) is immediate; the stepwise monotonicity

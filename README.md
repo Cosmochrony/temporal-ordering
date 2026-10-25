@@ -1,69 +1,74 @@
 This repository contains the source of the paper on projective temporal ordering and cumulative projected capacity  
 (paper of the Cosmochrony / spectral admissibility programme).
 
-This work introduces a **structural notion of temporal ordering**
+This work proposes a **candidate monotone proxy for temporal ordering**
 based on the cumulative projected capacity observable
 
-$I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$.
+$I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
 
-Starting from the spectral admissibility cascade, we identify a **monotone
-accumulation variable** that measures the amount of spectral structure
-stably projected up to depth $n$.
+which measures the amount of spectral structure projected up to BFS depth $n$
+along the spectral admissibility cascade.
 
-We then show that:
+The paper reports and separates three statements:
 
-- $I(n)$ is **strictly non-decreasing** along all tested admissible trajectories,
-- temporal ordering emerges as a **projective relation**, not a dynamics,
-- monotonicity reflects a **one-way activation mechanism** in spectral space,
-- the construction is fully compatible with **observable rank stability (O24)**.
+- **Mode retention (proved, immediate):** the cumulative Gram–Schmidt span satisfies
+  $V_n \subseteq V_{n+1}$; modes, once projected, do not leave it.
+- **Monotonicity (observed numerically, conjectured):** for
+  $q \in \lbrace 29, 61, 101, 151, 211 \rbrace$, $I(n)$ is non-decreasing at every BFS step after
+  burn-in ($n_{\mathrm{burn}} = 2$), for every conjugate pair, with zero regressions above a relative
+  threshold of $10^{-6}$ across 274 pairs and 360 post-burn-in steps. Equivalently,
+  $\sigma_{\mathrm{pair}}(n)$ is non-increasing; this does not follow from mode retention, since the
+  inclusion of spans does not control the shellwise ratio $\sigma_c(n) = \delta r_n / |S_n|$. The
+  stepwise statement is the paper's conjecture (one-way activation).
+- **Order on states (conditional):** $I(n)$ is computed along a trajectory and is not shown to depend
+  on the effective state alone, and the non-strict inequality allows plateaus. A strict partial order
+  on states requires the acyclicity hypothesis [H-acyc] of the Foundation paper, which is not
+  established.
 
-The derivation requires **no background time parameter, no thermodynamic
-assumption, and no dynamical evolution of the substrate**.
-Temporal ordering appears as a **structural consequence of non-injectivity**.
+The proposed ordering is not a dynamics of the substrate $\chi$, and it is compatible with
+**observable rank stability (O24)**.
 
 ## Conceptual Overview
 
 The paper proceeds in three logical steps:
 
-1. **Identification of the correct observable**  
-   The natural spectral observable $\sigma_{\mathrm{pair}}(n)$ measures
-   residual projective capacity and is strictly decreasing. Its complement
-   $I(n)$ instead measures cumulative projected structure and is the only
-   candidate compatible with a monotone ordering.
+1. **Identification of the observable**  
+   The spectral observable $\sigma_{\mathrm{pair}}(n)$ measures residual projective capacity and
+   decreases in every tested case; its stepwise decrease is not a consequence of the construction.
+   Its complement $I(n)$ measures cumulative projected structure and is the natural candidate for a
+   monotone ordering.
 
-2. **Projective temporal ordering**  
-   Time is defined as an ordering relation on admissible projections:
+2. **Projective temporal ordering along a trajectory**  
+   Successive effective states are linked by admissible transitions
+   $U_n \to \mathcal{A}(U_n) \to U_{n+1}$. The fibre $\Pi^{-1}(U_n)$ records the configurations
+   that realise $U_n$, and $U_{n+1}$ is the image of an admissible continuation of one of them
+   (reprojecting a configuration of the fibre itself would return $U_n$). Along the tested BFS
+   trajectories, $I(n) \le I(n+1)$ at every post-burn-in step. This is a property of the depth
+   index along a trajectory, not an order on states.
 
-   $U_t \prec U_{t+1} \iff I(U_t) \le I(U_{t+1})$.
-
-   This ordering does not correspond to motion in the substrate $\chi$,
-   but to changes in admissible selections $\sigma(U_t) \in \Pi^{-1}(U_t)$
-   under a fixed non-injective projection $\Pi$.
-
-3. **Structural irreversibility (one-way activation)**  
-   Numerical results show that once spectral modes are stably projected,
-   they do not deactivate. This induces a strictly monotone accumulation
-   of structure and provides a non-thermodynamic form of irreversibility.
+3. **Mode retention and one-way activation**  
+   Mode retention gives a non-thermodynamic form of irreversibility at the level of the span. The
+   observed one-way activation (non-increase of $\sigma_{\mathrm{pair}}$) is what makes $I(n)$ a
+   monotone proxy; it remains conjectural.
 
 ## Core Claims
 
-The paper establishes the following statements:
-
-1. **Temporal ordering arises from cumulative spectral projection**  
-   The observable $I(n)$ provides a monotone ordering parameter intrinsic
-   to the admissibility cascade.
+1. **A candidate monotone proxy along the admissibility cascade**  
+   $I(n)$ is observed to be non-decreasing along all tested trajectories, after burn-in and up to the
+   stated threshold; a proof is open.
 
 2. **Time is not a fundamental parameter of the substrate**  
-   The ordering is induced by the structure of admissible projections,
-   not by an evolution of $\chi$.
+   The proposed ordering is read from admissible projections, not from an evolution of $\chi$.
 
-3. **Non-injectivity is the origin of temporal ordering**  
-   The multiplicity of fibres $\Pi^{-1}(o)$ implies that successive
-   admissible selections generate an intrinsic ordering.
+3. **Non-injectivity raises the ordering question; it does not orient the states**  
+   The multiplicity of fibres $\Pi^{-1}(o)$ makes successive admissible realisations distinct from
+   the underlying configurations, but a chain of non-injective steps can revisit a state; orienting it
+   requires [H-acyc].
 
-4. **Irreversibility is structural, not thermodynamic**  
-   The one-way activation property reflects accumulation of admissible
-   spectral structure without invoking entropy or probability.
+4. **Irreversibility of the span is structural, not thermodynamic**  
+   Mode retention reflects accumulation of projected spectral structure without invoking entropy or
+   probability. The first transition $U_0 \to U_1$ is not guaranteed: projective incompleteness gives
+   a non-trivial fibre, not an admissible successor.
 
 5. **Observable rank remains invariant**  
    Temporal progression reorders admissible configurations but does not

@@ -24,20 +24,23 @@ Numerical Evidence from the Spectral Admissibility Cascade}
 
 
   \begin{abstract}
-    We identify a monotone proxy for temporal ordering within the
+    We propose a candidate monotone proxy for temporal ordering within the
     Cosmochrony spectral admissibility programme.
     The natural observable along the BFS cascade is not the residual
-    capacity $\sigma_{\mathrm{pair}}(n)$, which decays by construction,
+    capacity $\sigma_{\mathrm{pair}}(n)$, which decreases in every tested case,
     but the cumulative projected capacity
     $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
     which measures the spectral structure already projected at depth~$n$.
-    For $q \in \{29, 61, 101, 151, 211\}$, $I(n)$ is found to be strictly
-    non-decreasing at every BFS step, for every conjugate pair
-    $(c, q{-}c)$, with zero physically meaningful regressions observed
-    across 274~pairs and 360~steps after burn-in.
-    The temporal ordering is not a dynamics on the substrate~$\chi$, but
-    an induced ordering relation on admissible projections, compatible
-    with the observable rank stability established in O24~\cite{Beau2026a28}.
+    For $q \in \{29, 61, 101, 151, 211\}$, $I(n)$ is found to be
+    non-decreasing at every BFS step after burn-in, for every conjugate pair
+    $(c, q{-}c)$, with zero regressions above a relative threshold of $10^{-6}$
+    across 274~pairs and 360~post-burn-in steps.
+    This stepwise monotonicity is conjectural: the inclusion of the cumulative spans is immediate,
+    but it does not control the shellwise ratio $\sigma_{\mathrm{pair}}$.
+    $I(n)$ is defined along a trajectory and gives no order on states; a strict order on states
+    requires the acyclicity hypothesis [H-acyc], which is not established.
+    The proposed ordering is not a dynamics on the substrate~$\chi$, and it is
+    compatible with the observable rank stability established in O24.
     The saturation plateau of $I(n)$ is interpreted as Born--Infeld
     saturation at the pair level.
   \end{abstract}
@@ -70,15 +73,19 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   The Cosmochrony framework adopts a different starting point~\cite{Beau2026a}.
   The relational substrate~$\chi$ is static, and no fundamental time
   parameter is assumed.
-  Observable dynamics arises instead from an iterated reprojection
-  sequence
+  Observable dynamics arises instead from an iterated chain of admissible
+  transitions~\cite{Beau2026m}
   \begin{equation}
     \label{eq:reprojection}
-    U_{n+1} = \Pi \circ \sigma(U_n),
+    U_n \;\longrightarrow\; \mathcal{A}(U_n) \;\longrightarrow\; U_{n+1},
   \end{equation}
-  where $\Pi$ is a fixed non-injective projection and
-  $\sigma(U_n) \in \Pi^{-1}(U_n)$ selects an admissible configuration
-  within the fibre compatible with the current effective state.
+  where $\mathcal{A}(U_n)$ is the admissible neighbourhood of the current
+  effective state.
+  The non-injective projection~$\Pi$ enters through the fibre $\Pi^{-1}(U_n)$
+  of configurations that realise~$U_n$: the successor $U_{n+1}$ is the image of
+  an admissible continuation of such a configuration.
+  Reprojecting a configuration $\sigma(U_n) \in \Pi^{-1}(U_n)$ itself would
+  return $\Pi(\sigma(U_n)) = U_n$ and produce no new state.
   In this setting, the notion of time cannot be identified with an
   evolution of~$\chi$, but must emerge from the structure of admissible
   projections itself.
@@ -102,16 +109,21 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   measures the cumulative projected capacity, i.e.\ the amount of
   spectral structure stably realised up to depth~$n$.
 
-  The central result of this work is that $I(n)$ is strictly
+  The central result of this work is that $I(n)$ is
   non-decreasing along all tested admissible trajectories, across all
   conjugate pairs and all primes $q \in \{29, 61, 101, 151, 211\}$.
   This monotonicity is not imposed but observed numerically at each step
-  of the cascade, with no physically meaningful regression.
+  of the cascade after burn-in, with no regression above the threshold of
+  Table~\ref{tab:stability}.
+  It is not a consequence of the construction: the stepwise statement is
+  Conjecture~\ref{conj:owa}.
 
-  We interpret this property as defining a \emph{projective temporal
-  ordering}: time is not a parameter of the substrate, but a monotone
+  We propose to read this property as a candidate \emph{projective temporal
+  ordering} along a trajectory: time is not a parameter of the substrate, but a monotone
   ordering induced by the accumulation of admissible spectral structure
   under a non-injective projection.
+  Turning it into an order on states requires the acyclicity hypothesis
+  [H-acyc] of Foundation~\cite{Beau2026m}, which is not established.
   This ordering is compatible with the stability of observable rank
   established in O24~\cite{Beau2026a28} and introduces no additional
   dynamical degrees of freedom.
@@ -173,7 +185,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   \]
   quantifies this loss as a monotone accumulation of realised structure.
 
-  The observed strict monotonicity of $I(n)$ therefore provides a structural
+  The observed monotonicity of $I(n)$ therefore provides a structural
   criterion distinguishing genuine temporal ordering from reversible
   conditional parametrisations: only when projection entails irreversible
   compression does an intrinsic arrow of time emerge.
@@ -200,8 +212,11 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   depth~$n$: it counts, normalised by~$q$, the fraction of Weil
   fingerprint vectors that remain linearly independent of the
   Gram--Schmidt span built over the preceding shells.
-  By construction, $\sigma_{\mathrm{pair}}(n)$ decays as~$n$ grows and
-  cannot serve as a temporal proxy, since a decreasing quantity does not
+  In every tested case $\sigma_{\mathrm{pair}}(n)$ decreases as~$n$ grows
+  (after burn-in, Table~\ref{tab:stability}); its stepwise non-increase is not
+  a consequence of the construction but the content of
+  Conjecture~\ref{conj:owa}.
+  A decreasing quantity cannot serve as a temporal proxy, since it does not
   define an ordering compatible with the accumulation of structure.
   The correct variable is its complement~\eqref{eq:I_intro}, which we
   now define formally.
@@ -226,7 +241,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     $I(n)$ is non-decreasing if and only if $\sigma_{\mathrm{pair}}(n)$ is
     non-increasing.
     While this is expected under a dissipative interpretation of the BFS
-    cascade, the present work establishes it empirically without relying on
+    cascade, the present work supports it empirically without relying on
     a formal dissipation theorem: the monotonicity of $I(n)$ is observed
     directly, step by step and pair by pair, across all tested primes.
   \end{remark}
@@ -235,10 +250,12 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     Although $I(n)$ is indexed by BFS depth, its definition does not depend
     on the combinatorial parametrisation of the cascade but on the
     cumulative spectral projection.
-    The monotonicity observed here is therefore not an artefact of BFS
-    ordering, but reflects an intrinsic property of admissible projection:
-    the Gram--Schmidt span can only grow within the canonical
-    Gram--Schmidt construction used in the admissibility pipeline.
+    Mode retention --- the Gram--Schmidt span can only grow within the canonical
+    Gram--Schmidt construction used in the admissibility pipeline --- holds
+    for any order in which fingerprint vectors are added.
+    The monotonicity of $I(n)$ does not follow from it: it depends on the
+    shellwise ratio~\eqref{eq:ratio} and is observed only along the tested
+    BFS trajectories.
 
   \section{Temporal Ordering as a Projective Relation}
 
@@ -247,9 +264,9 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     substrate~$\Omega$ and not an evolution of~$\chi$.
     It is an induced ordering relation on the set of admissible projectable
     configurations.
-    The effective time parameter arises as a monotone ordering on admissible
-    projections, defined by the progressive saturation of the Born--Infeld
-    constraint under~$\Pi$.
+    The effective time parameter is proposed as a monotone ordering along admissible
+    trajectories, defined by the progressive saturation of the Born--Infeld
+    constraint under~$\Pi$; an order on states requires [H-acyc].
     Time is therefore neither a parameter of~$\chi$ nor an independent
     structure on the observable space~$\mathcal{O}$, but a relational
     ordering induced by the projective admissibility structure.
@@ -259,9 +276,10 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     state $o \in \mathcal{O}$ corresponds to a fibre $\Pi^{-1}(o)$
     containing multiple underlying configurations.
     Temporal ordering does not correspond to motion within~$\Omega$, but to
-    a change in the admissible selection
-    $\sigma(U_n) \in \Pi^{-1}(U_n)$ that defines the next effective state
-    $U_{n+1} = \Pi \circ \sigma(U_n)$.
+    a change of admissible realisation: the fibre $\Pi^{-1}(U_n)$ records the
+    configurations that realise~$U_n$, and the next effective state
+    $U_{n+1} \in \mathcal{A}(U_n)$ is the image of an admissible continuation of
+    one of them~\eqref{eq:reprojection}.
     Successive steps correspond to distinct admissible realisations drawn
     from different regions of the fibres.
     Time is therefore an ordering of admissible selections within a
@@ -271,66 +289,77 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     Conversely, if $\Pi$ were injective, each observable would correspond
     to a unique underlying configuration and no ordering ambiguity would
     arise.
-    The existence of temporal ordering is thus a direct consequence of
-    non-injectivity: it reflects the structural impossibility of identifying
-    a unique underlying configuration for each observable state.
+    Non-injectivity is thus the source of the ordering question: it reflects
+    the structural impossibility of identifying a unique underlying
+    configuration for each observable state.
+    It does not by itself orient the states: a chain of non-injective steps can
+    revisit a state, and orienting it requires [H-acyc]~\cite{Beau2026m}.
 
-    \begin{proposition}[Projective temporal ordering --- numerical form]
+    \begin{proposition}[Monotonicity of the cumulative projected capacity --- numerical form]
       \label{prop:order}
-      Define an ordering on effective states along the BFS cascade by
+      Let $n$ be the BFS shell depth, an index along a trajectory that does not
+      represent a physical time variable at the substrate level.
+      For $q \in \{29, 61, 101, 151, 211\}$, along each tested BFS trajectory
+      and for every conjugate pair $(c, q{-}c)$,
       \begin{equation}
         \label{eq:order}
-        U_n \prec U_{n+1}
-        \quad \Longleftrightarrow \quad
-        I(U_n) \leq I(U_{n+1}),
+        I(n) \;\leq\; I(n+1)
       \end{equation}
-      where $n$ is the BFS shell depth, an ordering parameter on projected
-      configurations that does not represent a physical time variable at the
-      substrate level.
-      For $q \in \{29, 61, 101, 151, 211\}$, this ordering is strictly observed
-      numerically along the tested BFS trajectories: $I(n)$ is strictly
-      non-decreasing at every step, for every conjugate pair $(c, q{-}c)$,
-      with no physically meaningful exception.
+      at every step $n \geq n_{\mathrm{burn}} = 2$: no decrease above the relative
+      threshold $10^{-6}$ of Table~\ref{tab:stability} is observed.
     \end{proposition}
 
     \begin{remark}[Status]
-        This is numerical evidence, not a proof.
-        The result establishes the ordering empirically along the tested
-        trajectories and does not exclude the possibility of exceptions at
-        larger~$q$ or along non-BFS paths.
-        The one-way activation property---that modes, once stably projected,
-        do not deactivate---remains to be established analytically.
+        This is numerical evidence, not a proof, and it is limited to the tested
+        trajectories after burn-in and to the stated threshold.
+        It does not exclude exceptions at larger~$q$ or along non-BFS paths.
+        Three statements must be distinguished.
+        \begin{enumerate}
+          \item \emph{Mode retention} (proved): $V_n \subseteq V_{n+1}$ holds by
+          the cumulative definition of the span (Section~\ref{subsec:formal});
+          modes, once projected, do not leave it.
+          It does not imply~\eqref{eq:order}.
+          \item \emph{Monotonicity} (conjectured): \eqref{eq:order} is equivalent to
+          the stepwise non-increase of the ratio $\sigma_{\mathrm{pair}}(n)$,
+          which is Conjecture~\ref{conj:owa}.
+          \item \emph{Order on states} (conditional): $I(n)$ is computed from the
+          shells of a given trajectory and is not shown to depend on the
+          effective state alone, so it does not define a function on states.
+          The inequality~\eqref{eq:order} is non-strict and allows plateaus, so it
+          does not give a strict order even along one trajectory.
+          A strict partial order on states requires [H-acyc]
+          (Foundation~\cite{Beau2026m}, Definition of [H-acyc] and Theorem on temporal
+          order), which is not established here.
+        \end{enumerate}
     \end{remark}
 
     \begin{remark}[State machine structure of the admissible cascade]
       \label{rem:state-machine-pto}
       The admissible neighbourhood $\mathcal{A}(U_n)$ gives the projective
-      cascade the structure of an oriented state machine: nodes are admissible
+      cascade the structure of a directed state machine: nodes are admissible
       projections, edges are admissible transitions, and a physical history
       is a directed path.
+      That this graph is acyclic, and so carries an orientation, is [H-acyc]
+      and is not established here~\cite{Beau2026m}.
       When $|\mathcal{A}(U_n)| = 1$, the successor is uniquely determined by
       the admissibility structure — no external dynamical law is required.
       When branching occurs ($|\mathcal{A}(U_n)| > 1$), the relative
       admissibility weights of the branches play the role of quantum
       probabilities.
-      In both cases, the index $n$ acquires its temporal meaning entirely
+      Under [H-acyc], the index $n$ acquires its temporal meaning entirely
       from the orientation of the admissibility graph; $I(n)$ measures
       cumulative path length in the spectral sense, not elapsed time with
       respect to any pre-existing background.
       The dynamics of the framework is the oriented topology of this graph,
       not a law superimposed upon it.
 
-      Moreover, the first transition $U_0 \to U_1$ requires no external
-      trigger.
-      The projective incompleteness result of~\cite{Beau2026a} establishes
-      that any admissible initial projection $\Pi_0$ necessarily leaves a
-      non-trivial residue, because a projection with trivial kernel would
-      require the simultaneous resolution of non-commuting generators ---
-      which is structurally forbidden by the Heisenberg structure of the
-      admissible fibre.
-      The admissible neighbourhood $\mathcal{A}(U_0)$ is therefore
-      guaranteed to be non-empty: the ordering starts not as a postulate
-      but as a structural necessity.
+      Projective incompleteness (Foundation~\cite{Beau2026m}, Corollary on
+      projective incompleteness) gives a non-trivial fibre for every non-injective
+      realisation map under A2, without any commutator or carrier-selection
+      argument.
+      It does not show that an admissible successor exists.
+      Non-emptiness of $\mathcal{A}(U_0)$, and with it the first transition
+      $U_0 \to U_1$, is a distinct condition that is not established here.
     \end{remark}
 
   \paragraph{Compatibility with observable rank stability.}
@@ -360,7 +389,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     \centering
     \caption{Monotonicity and stability of $I(n)$ per prime.
     ``Steps'' counts BFS depths after burn-in.
-    ``Mean mono'' reports whether the pair-averaged $I(n)$ is strictly
+    ``Mean mono'' reports whether the pair-averaged $I(n)$ is
     non-decreasing.
     ``Regressions'' counts pairs with at least one physically meaningful
     decrease in $I$ (threshold: relative decrease $> 10^{-6}$ of the
@@ -391,39 +420,45 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{../code/traces_q101}
-    \caption{Left: residual capacity $\sigma_{\mathrm{pair}}(n)$, strictly
-    decreasing (log scale).
+    \caption{Left: residual capacity $\sigma_{\mathrm{pair}}(n)$,
+    decreasing in every trace (log scale).
     Right: cumulative projected capacity
       $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
-      strictly non-decreasing.
+      non-decreasing in every trace.
       Both panels show all 50 conjugate pairs at $q = 101$.
-      The two observables are exact complements, illustrating the one-way
-      activation property: spectral modes, once projected, are never lost
-      from the Gram--Schmidt span (coherent configurations may nonetheless
+      The two observables are exact complements.
+      The traces illustrate the observed one-way activation of
+      Conjecture~\ref{conj:owa}, which does not follow from mode retention
+      ($V_n \subseteq V_{n+1}$: spectral modes, once projected, are never lost
+      from the Gram--Schmidt span, although coherent configurations may
       reorganize).}
     \label{fig:traces}
   \end{figure}
 
   \section{Interpretation}
 
-  \paragraph{One-way activation.}
-    The zero-regression result means the admissible BFS cascade behaves as
-    a one-way activation process in spectral space.
-    Once a mode contributes stably to the Gram--Schmidt span, it does not
-    leave: the spectral structure accumulated at depth~$n$ is preserved at
-    all subsequent depths.
-    One-way activation is a property of \emph{spectral modes}, not of the
+  \paragraph{Mode retention and one-way activation.}
+    Two properties must be kept apart.
+    \emph{Mode retention}: once a mode contributes to the Gram--Schmidt span,
+    it does not leave, $V_n \subseteq V_{n+1}$; this holds by construction of
+    the cumulative span.
+    It is a property of \emph{spectral modes}, not of the
     coherence of projected configurations: a coherent combination of modes
     --- corresponding to an unstable particle --- can lose its admissible
     coherence and reorganize into simpler configurations without any mode
     leaving~$V_n$.
-    This one-way activation mechanism provides a structural form of
-    irreversibility that does not rely on probabilistic or thermodynamic
-    arguments, but follows from the admissible accumulation of projected
-    spectral structure.
-    It is the condition of possibility for the identification of $I(n)$ as
-    a temporal proxy: an ordering defined by~$I$ is well-posed only if $I$
-    never reverses.
+    Mode retention provides a structural form of
+    irreversibility at the level of the span that does not rely on probabilistic
+    or thermodynamic arguments.
+    \emph{One-way activation}, in the sense of Conjecture~\ref{conj:owa}, is the
+    stepwise non-increase of $\sigma_{\mathrm{pair}}(n)$, equivalently the
+    non-decrease of $I(n)$.
+    The zero-regression result supports it numerically along the tested BFS
+    trajectories; it does not follow from mode retention, which does not control
+    the shellwise ratio~\eqref{eq:ratio}.
+    One-way activation is the condition under which $I(n)$ is a monotone proxy
+    along a trajectory: an ordering defined by~$I$ is consistent with the depth
+    index only if $I$ never reverses.
 
   \paragraph{Non-arbitrariness of $I(n)$.}
     The choice of $I(n)$ as a temporal proxy is not arbitrary among monotone
@@ -468,7 +503,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     framework~\cite{Beau2026a} but is not derived from it here.
 
   \paragraph{Candidate arrow of time.}
-    The strict monotonicity of $I(n)$ provides a candidate ordering
+    The observed monotonicity of $I(n)$ provides a candidate ordering
     compatible with an arrow of time, without invoking thermodynamic entropy
     or a background temporal coordinate.
     The ordering is projective: it reflects the irreversible accumulation
@@ -477,8 +512,9 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     direction of increasing information loss induced by the non-injective projection~$\Pi$,
     as quantified by the monotone accumulation of $I(n)$.
     Whether this identification holds within the full
-    framework~\cite{Beau2026a} is left as an open question; the present
-    result establishes only its monotone and stable character along the
+    framework~\cite{Beau2026a} is left as an open question; an order on states
+    would further require [H-acyc].
+    The present result supports only its monotone and stable character along the
     tested BFS trajectories for $q \in \{29, 61, 101, 151, 211\}$.
 
   \paragraph{Relation to standard time-dependent evolution.}
@@ -513,7 +549,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     embedding all events in one common background space-time, forcing space-time notions to be indexed to
     each observer~\cite{Pienaar2026}.
     Unlike approaches that replace a single space-time by observer-indexed space-time manifolds, the
-    present construction reconstructs temporal order directly from admissibility stratification through
+    present construction proposes to reconstruct temporal order directly from admissibility stratification through
     $I(n)$, without introducing a manifold $M_A$ for each observer.
     If no global manifold is available to carry a preferred ordering, temporal succession cannot be read
     off a background geometry and must instead be reconstructed intrinsically from the admissibility
@@ -521,6 +557,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     that a fragmented space-time can no longer provide globally.
 
   \subsection*{Formal statement and what remains to be proved}
+  \label{subsec:formal}
 
   The numerical results above support the following conjecture.
 
@@ -549,8 +586,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   asymptotically as $\dim V_n \to q$.
   They do not, however, imply the stepwise monotonicity of
   $\sigma_{\mathrm{pair}}(n)$, which is the content of
-  Conjecture~\ref{conj:owa}.
-  However, they do not imply Conjecture~\ref{conj:owa}: cumulative rank
+  Conjecture~\ref{conj:owa}: cumulative rank
   monotonicity alone does not control the shellwise ratio
   \begin{equation}
     \label{eq:ratio}
@@ -562,7 +598,8 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   relative to shell size.
 
   The numerical results of the present paper show that this efficiency
-  decreases monotonically throughout the tested range.
+  decreases monotonically throughout the tested range, after burn-in and up to
+  the threshold of Table~\ref{tab:stability}.
   A proof would require quantitative control of shellwise spectral
   saturation in the Weil sector of $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$,
   which we leave as an open problem (Question~2 in Section~\ref{sec:open}).
@@ -572,10 +609,10 @@ The \emph{cumulative projected capacity} at depth~$n$ is
 
   \begin{enumerate}
 
-    \item Does strict monotonicity of $I(n)$ hold for all admissible
+    \item Does the monotonicity of $I(n)$ hold for all admissible
     primes~$q$, or are there exceptions at large~$q$?
-    The extension to $q = 211$ (105 pairs, 50 steps) confirms strict
-    monotonicity with zero regressions (Table~\ref{tab:stability}).
+    The extension to $q = 211$ (105 pairs, 50 steps) shows zero regressions
+    after burn-in (Table~\ref{tab:stability}).
     Extension to $q \in \{307, 401\}$ is pending.
 
     \item Can the one-way activation property---$\sigma_{\mathrm{pair}}(n)$
@@ -635,11 +672,14 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$
   measures cumulative projected capacity and grows.
   Across $q \in \{29, 61, 101, 151, 211\}$, covering 274~pairs and
-  360~post-burn-in steps, $I(n)$ is strictly non-decreasing at every BFS
-  step and for every conjugate pair, with no physically meaningful
-  regression.
-  This establishes $I(n)$ as a robust monotone proxy for temporal ordering
-  along the admissible spectral cascade.
+  360~post-burn-in steps, $I(n)$ is non-decreasing at every post-burn-in BFS
+  step and for every conjugate pair, with no regression above a relative
+  threshold of $10^{-6}$.
+  This supports $I(n)$ as a monotone proxy for temporal ordering
+  along the tested trajectories of the admissible spectral cascade.
+  Mode retention ($V_n \subseteq V_{n+1}$) is immediate; the stepwise monotonicity
+  of $I(n)$ is Conjecture~\ref{conj:owa}; and an order on states requires the
+  acyclicity hypothesis [H-acyc]~\cite{Beau2026m}, which is not established.
   The ordering is not a dynamics on~$\chi$ but a relational structure
   induced by the non-injective projection~$\Pi$: it reorders admissible
   fibre selections within the fixed observable rank of O24~\cite{Beau2026a28},
@@ -650,7 +690,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   open direction.
   The monotonic accumulation of $I(n)$ is moreover compatible with an
   interpretation as cumulative information loss under non-injective projection,
-  identifying the one-way activation property as the spectral signature of
+  suggesting the one-way activation property as the spectral signature of
   structural irreversibility.
   These results support the view that temporal ordering is an emergent consequence
   of admissible projection structure, rather than a primitive ingredient of physical

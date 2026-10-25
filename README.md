@@ -37,7 +37,7 @@ The paper proceeds in three logical steps:
 
 1. **Identification of the observable**  
    The spectral observable $\sigma_{\mathrm{pair}}(n)$ measures residual projective capacity and
-   decreases in every tested case; its stepwise decrease is not a consequence of the construction.
+   decreases in every tested case up to plateau fluctuations below the tolerance; its stepwise decrease is not a consequence of the construction.
    Its complement $I(n)$ measures cumulative projected structure and is the natural candidate for a
    monotone ordering.
 

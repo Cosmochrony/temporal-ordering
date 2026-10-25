@@ -44,7 +44,7 @@ The paper proceeds in three logical steps:
    $U_n \to \mathcal{A}(U_n) \to U_{n+1}$. The fibre $\Pi^{-1}(U_n)$ records the configurations
    that realise $U_n$, and $U_{n+1}$ is the image of an admissible continuation of one of them
    (reprojecting a configuration of the fibre itself would return $U_n$). Along the tested BFS
-   trajectories, $I(n) \le I(n+1)$ at every post-burn-in step. This is a property of the depth
+   trajectories, $I(n+1) - I(n) \ge -10^{-6} I_{\max}$ at every post-burn-in step. This is a property of the depth
    index along a trajectory, not an order on states.
 
 3. **Mode retention and one-way activation**  

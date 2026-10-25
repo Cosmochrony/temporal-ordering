@@ -141,7 +141,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
     Within the present framework, this behaviour admits a direct structural
     interpretation.
 
-    The monotonicity of the cumulative projected capacity $I(n)$ reflects
+    The observed monotonicity of the cumulative projected capacity $I(n)$ is read as reflecting
     the information loss induced by the non-injective projection~$\Pi$.
     A feedback-controlled reversal does not contradict this structure:
     it compensates for this loss by injecting additional external information,
@@ -177,13 +177,15 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   The ordering parameter $t$ labels different conditionings but does not define an intrinsically oriented sequence.
 
   By contrast, in the projective admissibility framework, the projection $\Pi$
-  is structurally non-injective and induces irreversible information loss at
-  each step.
+  is structurally non-injective, and each non-injective step loses information
+  in its immediate image~\cite{Beau2026m}.
   The cumulative projected capacity
   \[
     I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)
   \]
-  quantifies this loss as a monotone accumulation of realised structure.
+  is read as a proxy for this loss: an accumulation of realised structure that is
+  monotone, within the threshold of Table~\ref{tab:stability}, along the tested
+  trajectories.
 
   On an interpretive reading, the observed monotonicity of $I(n)$ suggests a
   structural difference between the projective cascade and reversible
@@ -205,7 +207,7 @@ Numerical Evidence from the Spectral Admissibility Cascade}
     whose non-injective character is not exploited: the effective evolution is
     reconstructed without an associated cumulative loss of distinguishable information.
     The projective temporal ordering identified here differs in this respect,
-    being tied to the monotone accumulation of projected capacity along the admissible
+    being tied to the accumulation of projected capacity, monotone within tolerance along the tested admissible
     cascade rather than to the choice of a conditioning sector.
 
   \section{The Two Variables and Why $\sigma_{\mathrm{pair}}$ Is Not the Right One}
@@ -246,7 +248,8 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     While this is expected under a dissipative interpretation of the BFS
     cascade, the present work supports it empirically without relying on
     a formal dissipation theorem: the monotonicity of $I(n)$ is observed
-    directly, step by step and pair by pair, across all tested primes.
+    directly, step by step and pair by pair, across all tested primes, within
+    the threshold of Table~\ref{tab:stability}.
   \end{remark}
 
   \paragraph{Dependence on the BFS parametrisation.}
@@ -310,7 +313,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       at every step $n \geq n_{\mathrm{burn}} = 2$, where $I_{\max}$ is the plateau
       value of $I$ for that pair (the threshold of Table~\ref{tab:stability}).
       The exact inequality $I(n) \leq I(n+1)$ is not verified at this precision;
-      it is the content of Conjecture~\ref{conj:owa}.
+      for $n \geq n_{\mathrm{burn}}$ it is implied by Conjecture~\ref{conj:owa}.
     \end{proposition}
 
     \begin{remark}[Status]
@@ -386,9 +389,13 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   parameters \texttt{M=50} independent block samples per pair and
   \texttt{bfs\_frac=0.99} (full graph exploration).
   Monotonicity of $I(n)$ is tested by the
-  \texttt{o\_stability\_diagnostic.py} script, which verifies,
-  for each prime and each pair, that no step $I(n{+}1) < I(n)$ occurs
+  \texttt{o\_stability\_diagnostic.py} script, which records,
+  for each prime and each pair, every step with $I(n{+}1) < I(n)$
   after the burn-in depth $n_{\mathrm{burn}} = 2$.
+  A recorded decrease is counted as a regression in
+  Table~\ref{tab:stability} only if $I(n) - I(n{+}1) > 10^{-6}\, I_{\max}$,
+  where $I_{\max}$ is the plateau value of the pair; this threshold is applied
+  to the script's output and is not part of the script.
 
   \begin{table}[h]
     \centering
@@ -429,7 +436,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     decreasing in every trace (log scale).
     Right: cumulative projected capacity
       $I(n) = \sigma_{\mathrm{pair}}(0) - \sigma_{\mathrm{pair}}(n)$,
-      non-decreasing in every trace.
+      non-decreasing in every trace within the threshold of Table~\ref{tab:stability}.
       Both panels show all 50 conjugate pairs at $q = 101$.
       The two observables are exact complements.
       The traces illustrate the observed one-way activation of
@@ -514,7 +521,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     of stably activated spectral structure along the admissible cascade.
     This provides a candidate identification of the temporal direction with the
     direction of increasing information loss induced by the non-injective projection~$\Pi$,
-    as quantified by the monotone accumulation of $I(n)$.
+    as quantified by the accumulation of $I(n)$, monotone within tolerance along the tested trajectories.
     Whether this identification holds within the full
     framework~\cite{Beau2026a} is left as an open question; an order on states
     would further require [H-acyc].
@@ -523,7 +530,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
 
   \paragraph{Relation to standard time-dependent evolution.}
     The present construction does not assume a fundamental time parameter.
-    Temporal ordering is instead defined by the monotone accumulation of
+    Temporal ordering is instead proposed to be read from the accumulation, monotone within tolerance, of
     projected spectral capacity along the admissible cascade.
     In this reading, time-dependent evolution equations such as the
     Schrödinger equation~\cite{Schrodinger1926} are naturally understood

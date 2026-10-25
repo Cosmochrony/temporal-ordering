@@ -392,7 +392,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   \texttt{o\_stability\_diagnostic.py} script, which records,
   for each prime and each pair, every step with $I(n{+}1) < I(n)$
   after the burn-in depth $n_{\mathrm{burn}} = 2$.
-  A recorded decrease is counted as a regression in
+  A recorded decrease is counted as a regression, and in the monotone fraction, in
   Table~\ref{tab:stability} only if $I(n) - I(n{+}1) > 10^{-6}\, I_{\max}$,
   where $I_{\max}$ is the plateau value of the pair; this threshold is applied
   to the script's output and is not part of the script.
@@ -509,7 +509,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     level: once the projective flux budget of the conjugate pair is fully
     consumed, no additional spectral structure can be resolved within the
     effective description.
-    Saturation is irreversible in all tested cases; this is consistent with
+    Saturation is irreversible in all tested cases, within the threshold of Table~\ref{tab:stability}; this is consistent with
     the bounded-flux constraint of the Cosmochrony
     framework~\cite{Beau2026a} but is not derived from it here.
 
@@ -525,7 +525,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     Whether this identification holds within the full
     framework~\cite{Beau2026a} is left as an open question; an order on states
     would further require [H-acyc].
-    The present result supports only its monotone and stable character along the
+    The present result supports only its monotone (within tolerance) and stable character along the
     tested BFS trajectories for $q \in \{29, 61, 101, 151, 211\}$.
 
   \paragraph{Relation to standard time-dependent evolution.}
@@ -699,7 +699,7 @@ The \emph{cumulative projected capacity} at depth~$n$ is
   its analytical derivation from the admissibility constraints of~$\Pi$
   and the scaling of $n_1(q)/q$~\cite{Beau2026a29} remains the central
   open direction.
-  The monotonic accumulation of $I(n)$ is moreover compatible with an
+  The accumulation of $I(n)$, monotone within tolerance, is moreover compatible with an
   interpretation as cumulative information loss under non-injective projection,
   suggesting the one-way activation property as the spectral signature of
   structural irreversibility.

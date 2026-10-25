@@ -185,13 +185,16 @@ Numerical Evidence from the Spectral Admissibility Cascade}
   \]
   quantifies this loss as a monotone accumulation of realised structure.
 
-  The observed monotonicity of $I(n)$ therefore provides a structural
-  criterion distinguishing genuine temporal ordering from reversible
-  conditional parametrisations: only when projection entails irreversible
-  compression does an intrinsic arrow of time emerge.
+  On an interpretive reading, the observed monotonicity of $I(n)$ suggests a
+  structural difference between the projective cascade and reversible
+  conditional parametrisations: irreversible compression is a candidate source
+  of an arrow of time.
+  It is not a criterion for one: monotonicity along the tested trajectories
+  gives no order on states, and an intrinsic arrow would require, in addition,
+  the acyclicity hypothesis [H-acyc]~\cite{Beau2026m}, which is not established.
 
   In this sense, conditional constructions such as Page--Wootters can be
-  understood as reversible limits of the more general non-injective projection
+  read as reversible limits of the more general non-injective projection
   framework, in which ordering exists but lacks orientation.
 
   \paragraph{Relation to conditional quantum models.}
@@ -246,16 +249,15 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     directly, step by step and pair by pair, across all tested primes.
   \end{remark}
 
-  \paragraph{Independence from the BFS parametrisation.}
-    Although $I(n)$ is indexed by BFS depth, its definition does not depend
-    on the combinatorial parametrisation of the cascade but on the
-    cumulative spectral projection.
-    Mode retention --- the Gram--Schmidt span can only grow within the canonical
-    Gram--Schmidt construction used in the admissibility pipeline --- holds
-    for any order in which fingerprint vectors are added.
-    The monotonicity of $I(n)$ does not follow from it: it depends on the
-    shellwise ratio~\eqref{eq:ratio} and is observed only along the tested
-    BFS trajectories.
+  \paragraph{Dependence on the BFS parametrisation.}
+    $I(n)$ depends on the BFS parametrisation: it is built from the shellwise
+    ratios~\eqref{eq:ratio}, whose numerators and denominators are fixed by the
+    shells~$S_n$.
+    Only cumulative retention is independent of it: the Gram--Schmidt span can
+    only grow within the canonical Gram--Schmidt construction used in the
+    admissibility pipeline, for any order in which fingerprint vectors are added.
+    The monotonicity of $I(n)$ does not follow from cumulative retention and is
+    observed only along the tested BFS trajectories.
 
   \section{Temporal Ordering as a Projective Relation}
 
@@ -303,10 +305,12 @@ The \emph{cumulative projected capacity} at depth~$n$ is
       and for every conjugate pair $(c, q{-}c)$,
       \begin{equation}
         \label{eq:order}
-        I(n) \;\leq\; I(n+1)
+        I(n+1) - I(n) \;\geq\; -10^{-6}\, I_{\max}
       \end{equation}
-      at every step $n \geq n_{\mathrm{burn}} = 2$: no decrease above the relative
-      threshold $10^{-6}$ of Table~\ref{tab:stability} is observed.
+      at every step $n \geq n_{\mathrm{burn}} = 2$, where $I_{\max}$ is the plateau
+      value of $I$ for that pair (the threshold of Table~\ref{tab:stability}).
+      The exact inequality $I(n) \leq I(n+1)$ is not verified at this precision;
+      it is the content of Conjecture~\ref{conj:owa}.
     \end{proposition}
 
     \begin{remark}[Status]
@@ -318,14 +322,15 @@ The \emph{cumulative projected capacity} at depth~$n$ is
           \item \emph{Mode retention} (proved): $V_n \subseteq V_{n+1}$ holds by
           the cumulative definition of the span (Section~\ref{subsec:formal});
           modes, once projected, do not leave it.
-          It does not imply~\eqref{eq:order}.
-          \item \emph{Monotonicity} (conjectured): \eqref{eq:order} is equivalent to
-          the stepwise non-increase of the ratio $\sigma_{\mathrm{pair}}(n)$,
-          which is Conjecture~\ref{conj:owa}.
+          It does not imply the exact inequality $I(n) \leq I(n+1)$.
+          \item \emph{Monotonicity} (conjectured): the exact inequality
+          $I(n) \leq I(n+1)$ is equivalent to the stepwise non-increase of the
+          ratio $\sigma_{\mathrm{pair}}(n)$, which is Conjecture~\ref{conj:owa};
+          the numerical bound~\eqref{eq:order} supports it within tolerance.
           \item \emph{Order on states} (conditional): $I(n)$ is computed from the
           shells of a given trajectory and is not shown to depend on the
           effective state alone, so it does not define a function on states.
-          The inequality~\eqref{eq:order} is non-strict and allows plateaus, so it
+          Even the exact inequality is non-strict and allows plateaus, so it
           does not give a strict order even along one trajectory.
           A strict partial order on states requires [H-acyc]
           (Foundation~\cite{Beau2026m}, Definition of [H-acyc] and Theorem on temporal
@@ -447,9 +452,8 @@ The \emph{cumulative projected capacity} at depth~$n$ is
     --- corresponding to an unstable particle --- can lose its admissible
     coherence and reorganize into simpler configurations without any mode
     leaving~$V_n$.
-    Mode retention provides a structural form of
-    irreversibility at the level of the span that does not rely on probabilistic
-    or thermodynamic arguments.
+    Mode retention is a cumulative retention of projected spectral structure
+    that does not rely on probabilistic or thermodynamic arguments.
     \emph{One-way activation}, in the sense of Conjecture~\ref{conj:owa}, is the
     stepwise non-increase of $\sigma_{\mathrm{pair}}(n)$, equivalently the
     non-decrease of $I(n)$.

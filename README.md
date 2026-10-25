@@ -19,7 +19,8 @@ The paper reports and separates three statements:
   threshold of $10^{-6}$ across 274 pairs and 360 post-burn-in steps. Equivalently,
   $\sigma_{\mathrm{pair}}(n)$ is non-increasing; this does not follow from mode retention, since the
   inclusion of spans does not control the shellwise ratio $\sigma_c(n) = \delta r_n / |S_n|$. The
-  stepwise statement is the paper's conjecture (one-way activation).
+  stepwise statement is the paper's conjecture (one-way activation); the numerical result is the
+  tolerance bound $I(n+1) - I(n) \ge -10^{-6} I_{\max}$.
 - **Order on states (conditional):** $I(n)$ is computed along a trajectory and is not shown to depend
   on the effective state alone, and the non-strict inequality allows plateaus. A strict partial order
   on states requires the acyclicity hypothesis [H-acyc] of the Foundation paper, which is not
@@ -47,7 +48,7 @@ The paper proceeds in three logical steps:
    index along a trajectory, not an order on states.
 
 3. **Mode retention and one-way activation**  
-   Mode retention gives a non-thermodynamic form of irreversibility at the level of the span. The
+   Mode retention is a cumulative retention of projected structure, not a thermodynamic statement. The
    observed one-way activation (non-increase of $\sigma_{\mathrm{pair}}$) is what makes $I(n)$ a
    monotone proxy; it remains conjectural.
 
@@ -65,7 +66,7 @@ The paper proceeds in three logical steps:
    the underlying configurations, but a chain of non-injective steps can revisit a state; orienting it
    requires [H-acyc].
 
-4. **Irreversibility of the span is structural, not thermodynamic**  
+4. **Cumulative retention is structural, not thermodynamic**  
    Mode retention reflects accumulation of projected spectral structure without invoking entropy or
    probability. The first transition $U_0 \to U_1$ is not guaranteed: projective incompleteness gives
    a non-trivial fibre, not an admissible successor.
